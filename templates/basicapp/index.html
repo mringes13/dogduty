@@ -1,0 +1,250 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href="{% static 'css/indexcss.css' %}">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&family=Special+Elite&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <!--Light blue: #D8E4EC (inverse: 271B13)-->
+    <!--Dark blue: #455359 (inverse: BAACA6) -->
+    <!--New blue: #565255 (inverse: A9ADAA)-->
+    <!--Count pink: #e936a7-->
+    <title>Dog Duty</title>
+
+  </head>
+  <body style="font-family: 'Open Sans', sans-serif;">
+    <!-- <div style="background-color: #d8e4ec;">
+      <img class="p-3" style="height: 80px;" src="pawprint.png">
+    </div> -->
+  
+    <div class="jumbotron text-white text-center mb-0 pb-1" style="background-color: #455359;">
+      <h1 class="display-4 mil" style="font-family: 'Special Elite', cursive;">DOG DUTY</h1>
+      <p class="lead mx-auto col-10 col-lg-12 mir">Thank you for trusting Dog Duty to keep track of your pet's most important tasks.</p>
+      <hr class="my-4 mir" style="border-top: 1px solid rgba(255,255,255,0.8);">
+    </div>
+    
+    {% if messages %}
+      {% for message in messages %}
+          <div class="mx-auto alert alert-success text-center mt-2">{{message}}</div>
+      {% endfor %}
+    {% endif %}
+
+    <!--Buttons-->
+    <div class="container mib text-center my-5 col-12 col-md-8 col-lg-6 col-xl-12">
+      <h1 class="mx-auto col-11 col-sm-8 col-md-12" style="font-family: 'Special Elite', cursive;">What did your pet do?</h1>
+      <h6 class="mx-auto col-11 col-md-12 col-sm-8">Select one of the following icons to log your pets most recent activities.</h6>
+      <p class="mb-1"><img style="transform: translateY(-1px);" src="https://img.icons8.com/metro/15/000000/cat-footprint.png"/> Pee</p>
+      <p class="mb-1"><img style="transform: translateY(-1px);" src="https://img.icons8.com/metro/15/000000/cat-footprint.png"/> Poop</p>
+      <p class="mb-1"><img style="transform: translateY(-1px);" src="https://img.icons8.com/metro/15/000000/cat-footprint.png"/> Walk</p>
+      <p class="mb-1"><img style="transform: translateY(-1px);" src="https://img.icons8.com/metro/15/000000/cat-footprint.png"/> Meal</p>
+      <p class="mb-1"><img style="transform: translateY(-1px);" src="https://img.icons8.com/metro/15/000000/cat-footprint.png"/> Medicine</p>
+      <p class="mb-3"><img style="transform: translateY(-1px);" src="https://img.icons8.com/metro/15/000000/cat-footprint.png"/> Taken out but no business</p>
+
+      <a data-toggle="modal" data-target="#peemodal"><img class="icon p-3 p-md-4 p-xl-1 m-2 col-4 col-sm-3 col-md-3 col-xl-1" style="background-color: #A9ADAA; border-radius: 10%; filter: invert(1);" src="https://img.icons8.com/ios-filled/100/000000/dog-pee.png"/></button>
+      <a data-toggle="modal" data-target="#poopmodal"><img class="icon p-3 p-md-4 p-xl-1 m-2 col-4 col-sm-3 col-md-3 col-xl-1" style="background-color: #A9ADAA; border-radius: 10%; filter: invert(1);" src="https://img.icons8.com/ios-filled/96/000000/dog-pooping.png"/></a>
+      <a data-toggle="modal" data-target="#walkmodal"><img class="icon p-3 p-md-4 p-xl-1 m-2 col-4 col-sm-3 col-md-3 col-xl-1" style="background-color: #A9ADAA; border-radius: 10%; filter: invert(1);" src="https://img.icons8.com/ios-filled/100/000000/dog-walking.png"/></a>
+      <a data-toggle="modal" data-target="#eatmodal"><img class="icon p-3 p-md-4 p-xl-1 m-2 col-4 col-sm-3 col-md-3 col-xl-1" style="background-color: #A9ADAA; border-radius: 10%; filter: invert(1);" src="https://img.icons8.com/pastel-glyph/96/000000/dog-bowl.png"/></a>
+      <a data-toggle="modal" data-target="#medicinemodal"><img class="icon p-3 p-md-4 p-xl-1 m-2 col-4 col-sm-3 col-md-3 col-xl-1" style="background-color: #A9ADAA; border-radius: 10%; filter: invert(1);" src="https://img.icons8.com/material-sharp/96/000000/pill.png"/></a>
+      <a data-toggle="modal" data-target="#nothingmodal"><img class="icon p-3 p-md-4 p-xl-1 m-2 col-4 col-sm-3 col-md-3 col-xl-1" style="background-color: #A9ADAA; border-radius: 10%; filter: invert(1);" src="https://img.icons8.com/ios-filled/100/000000/sad.png"/></a>
+    </div>
+
+    <div id="bottom" class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+      <!--Todays Log-->
+      <div class="col-11 col-md-5 container mib text-center mb-5 mx-2 p-4 rounded " style="background-color: #d8e4ec;">
+        <h2 class="mx-auto col-9 col-sm-12 mb-0" style="font-family: 'Special Elite', cursive;">Today's Log</h2>
+        <h6 class="mb-4">Scroll to see complete list.</h6>
+        <div class="text-center d-flex">
+          <p class="col-4 col-sm-4 mb-0 p-0">Activity</p>
+          <p class="col-4 col-sm-4 mb-0 p-0">Time</p>
+          <p class="col-4 col-sm-4 mb-0 p-0">Reporter</p>
+        </div>
+        <hr class="my-2" style="border-top: 1px solid #455359;">
+        <div style="min-height: 134px; max-height: 134px; overflow: scroll;">
+          {% for event in events %}
+          <div class="text-center d-flex my-1">
+            <p class="col-4 col-sm-4 mb-0 p-0">{{event.activity}}</p>
+            <p class="col-4 col-sm-4 mb-0 p-0">{{event.time|date:"h:i a"}}</p>
+            <p class="col-4 col-sm-4 mb-0 p-0">{{event.reporter}}</p>
+          </div>
+          <hr class="my-2" style="width: 85%; border-top: 1px dotted #455359;">
+          {% endfor %}
+        </div>
+      </div>
+
+      <!--Count-->
+      <div class="container col-11 col-md-5 mib text-center mb-5 mx-2 p-5 rounded" style="background-color: #d8e4ec;">
+        <h2 class="mx-auto col-10 col-sm-12 mb-4" style="font-family: 'Special Elite', cursive;">Today's Count</h2>
+        <div class="row">
+          <div class="col-4">
+            <h3 class="mb-0" style="font-family: 'Special Elite', cursive; color: #455359; filter: drop-shadow(1px 1px 2px #e936a7);">{{peecount}}</h3>
+            <p style="font-family: 'Special Elite', cursive;">Pee</p>
+          </div>
+          <div class="col-4">
+            <h3 class="mb-0" style="font-family: 'Special Elite', cursive; color: #455359; filter: drop-shadow(1px 1px 2px #e936a7);">{{poopcount}}</h3>
+            <p style="font-family: 'Special Elite', cursive;">Poop</p>
+          </div>
+          <div class="col-4">
+            <h3 class="mb-0" style="font-family: 'Special Elite', cursive; color: #455359; filter: drop-shadow(1px 1px 2px #e936a7);">{{walkcount}}</h3>
+            <p style="font-family: 'Special Elite', cursive;">Walk</p>
+          </div>
+          <div class="col-4">
+            <h3 class="mb-0" style="font-family: 'Special Elite', cursive; color: #455359; filter: drop-shadow(1px 1px 2px #e936a7);">{{eatcount}}</h3>
+            <p style="font-family: 'Special Elite', cursive;">Eat</p>
+          </div>
+          <div class="col-4">
+            <h3 class="mb-0" style="font-family: 'Special Elite', cursive; color: #455359; filter: drop-shadow(1px 1px 2px #e936a7);">{{medicinecount}}</h3>
+            <p style="font-family: 'Special Elite', cursive;">Medicine</p>
+          </div>
+          <div class="col-4">
+            <h3 class="mb-0" style="font-family: 'Special Elite', cursive; color: #455359; filter: drop-shadow(1px 1px 2px #e936a7);">{{nothingcount}}</h3>
+            <p style="font-family: 'Special Elite', cursive;">Nothing</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pee Modal -->
+    <div class="modal fade" id="peemodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>To log a pee, enter your name as the caretaker and select submit.</p>
+            <form class="text-center" method="POST" action={% url 'addpee' %}>
+              {% csrf_token %}
+              <div class="form-group">
+                <input name="name" type="text" class="form-control" id="reporterfield" placeholder="First Name" autofocus>
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-outline-success" href="{% url 'addpee' %}">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Poop Modal -->
+    <div class="modal fade" id="poopmodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>To log a poop, enter your name as the caretaker and select submit.</p>
+            <form class="text-center" method="POST" action={% url 'addpoop' %}>
+              {% csrf_token %}
+              <div class="form-group">
+                <input name="name" type="text" class="form-control" id="reporter" placeholder="First Name">
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-outline-success" href="{% url 'addpoop' %}">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Walk Modal -->
+    <div class="modal fade" id="walkmodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>To log a walk, enter your name as the caretaker and select submit.</p>
+            <form class="text-center" method="POST" action={% url 'addwalk' %}>
+              {% csrf_token %}
+              <div class="form-group">
+                <input name="name" type="text" class="form-control" id="reporter" placeholder="First Name">
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-outline-success" href="{% url 'addwalk' %}">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eat Modal -->
+    <div class="modal fade" id="eatmodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>To log a meal, enter your name as the caretaker and select submit.</p>
+            <form class="text-center" method="POST" action={% url 'addeat' %}>
+              {% csrf_token %}
+              <div class="form-group">
+                <input name="name" type="text" class="form-control" id="reporter" placeholder="First Name">
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-outline-success" href="{% url 'addeat' %}">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Medicine Modal -->
+    <div class="modal fade" id="medicinemodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>To log medicine, enter your name as the caretaker and select submit.</p>
+            <form class="text-center" method="POST" action={% url 'addmedicine' %}>
+              {% csrf_token %}
+              <div class="form-group">
+                <input name="name" type="text" class="form-control" id="reporter" placeholder="First Name">
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-outline-success" href="{% url 'addmedicine' %}">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nothing Modal -->
+    <div class="modal fade" id="nothingmodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p>To log that your pet was taken out but did nothing, enter your name as the caretaker and select submit.</p>
+            <form class="text-center" method="POST" action={% url 'addnothing' %}>
+              {% csrf_token %}
+              <div class="form-group">
+                <input name="name" type="text" class="form-control" id="reporter" placeholder="First Name">
+              </div>
+              <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-outline-success" href="{% url 'addnothing' %}">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mib jumbotron text-white text-center mb-0" style="background-color: #455359;">
+      <h1 class="display-4 m-0" style="font-family: 'Special Elite', cursive;">Thank you!</h1>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

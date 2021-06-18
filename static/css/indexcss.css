@@ -1,0 +1,50 @@
+/* .mil{
+    display: block;
+    animation-name: moveInLeft;
+}
+.mir{
+    display: block;
+    animation-name: moveInRight;
+    animation-duration: 0s;
+}
+.mib{
+    display:block;
+    animation-name: moveInBottom;
+    animation-duration: 0s;
+} */
+
+.icon:hover{
+    transform: translateY(-10px);
+    box-shadow: 10px 10px 10px #271b13;
+}
+
+@keyframes moveInLeft{
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+@keyframes moveInRight{
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+@keyframes moveInBottom{
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
