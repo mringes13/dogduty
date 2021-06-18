@@ -1,5 +1,5 @@
 # Dog-Duty
-This application is currently deployed on https://dog-duty.herokuapp.com/
+This application is currently deployed on https://dogduty.herokuapp.com/
 <br>
 <br>
 This application is used to keep a family or group of caretakers informed about the activities of their pet. For example, users can log when the dog has gone to the bathroom, eaten, been fed its medicine, and more. This application was created using Django, HTML, CSS, and Bootstrap. This project is still in the development phase.
