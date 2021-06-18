@@ -87,14 +87,16 @@ WSGI_APPLICATION = 'dogduty.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd96vpbe8e9g7ck',
-        'USER':'bdesxsnefmnyhz',
-        'PASSWORD':'f7dc70825ed06541b8a4dd2362669e488071b04157dab7ec899877c2f8b1f1fb',
-        'HOST':'ec2-35-170-85-206.compute-1.amazonaws.com',
-        'PORT':'5432',
+        'NAME': '',
+        'USER':'',
+        'PASSWORD':'',
+        'HOST':'',
+        'PORT':'',
     }
 }
 
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
